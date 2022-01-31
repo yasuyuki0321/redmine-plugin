@@ -1,13 +1,25 @@
 version: '3.8'
 services:
+  redmine-web:
+    image: public.ecr.aws/nginx/nginx:latest
+    container_name: redmine-web
+    ports:
+      - 8080:80
+    volumes:
+      - ./data/web/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - redmine
+      - redmine-db
+    restart: always
   redmine:
     build: .
     container_name: redmine
     ports:
       - 3000:3000
     volumes:
-      - ./data/plugins:/usr/src/redmine/plugins
-      - ./data/themes:/usr/src/redmine/public/themes
+      - ./data/redmine/plugins:/usr/src/redmine/plugins
+      - ./data/redmine/files:/usr/src/redmine/files
+      - ./data/redmine/themes:/usr/src/redmine/public/themes
     environment:
       REDMINE_DB_MYSQL: redmine-db
       REDMINE_DB_PASSWORD: redmine

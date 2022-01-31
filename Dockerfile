@@ -2,9 +2,7 @@ FROM public.ecr.aws/docker/library/redmine:latest
 
 RUN apt update; \
     apt install -y \
-        locales \
-        imagemagick \
-        libmagickwand-dev
+        locales
 
 RUN sed -i -E 's/# (ja_JP.UTF-8)/\1/' /etc/locale.gen; \
     locale-gen
