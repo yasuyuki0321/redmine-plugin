@@ -26,11 +26,11 @@
 git clone https://github.com/yasuyuki0321/redmine-plugin.git
 ```
 
-2. docker-compose up でコンテナを起動する
+2. docker compose up でコンテナを起動する
 
 ```sh
 cd redmine-plugin
-docker-compose up -d
+docker compose up -d
 ```
 
 3. redmine のコンテナにログインし、プラグインのインストールを行う
@@ -44,8 +44,8 @@ bundle exec rake redmine:plugins RAILS_ENV=production
 4. コンテナの再起動を行う
 
 ```sh
-docker-compose down
-docker-compose up -d
+docker compose down
+docker compose up -d
 ```
 
 5. Redmineにアクセスする
