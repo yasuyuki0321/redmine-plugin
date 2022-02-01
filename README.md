@@ -39,6 +39,7 @@ docker compose up -d
 docker exec -it redmine bash
 bundle install --without development test --no-deployment
 bundle exec rake redmine:plugins RAILS_ENV=production
+exit
 ```
 
 4. コンテナの再起動を行う
