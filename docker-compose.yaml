@@ -14,6 +14,7 @@ services:
   redmine:
     build: .
     container_name: redmine
+    user: 999:999
     ports:
       - 3000:3000
     volumes:
