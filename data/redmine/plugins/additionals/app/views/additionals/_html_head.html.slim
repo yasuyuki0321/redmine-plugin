@@ -1,0 +1,5 @@
+- additionals_top_menu_setup
+= additionals_library_load :font_awesome
+= stylesheet_link_tag 'additionals', plugin: 'additionals'
+= javascript_include_tag 'additionals', plugin: 'additionals'
+- render_custom_top_menu_item unless AdditionalsPlugin.active_hrm?

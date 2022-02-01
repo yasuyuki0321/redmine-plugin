@@ -1,0 +1,10 @@
+.DS_Store
+.buildpath
+coverage/
+tmp/
+Gemfile.lock
+.project
+.settings/
+._*
+*.gem
+.enable_dev
