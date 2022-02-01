@@ -20,6 +20,8 @@
 
 ## Usage
 
+## 初めて起動する場合
+
 1. リポジトリをクローンする
 
 ```sh
@@ -52,7 +54,27 @@ docker compose up -d
 5. Redmineにアクセスする
 
 http://localhost:8080
+※ エラー画面が表示される場合、再度、項番3からやり直すと直ることが多い
 
 初期パスワード  
 id: admin  
 pass: admin
+
+## プラグインを追加する場合
+
+1. プラグインの追加
+
+```sh
+docker exec -it redmine bash
+git clone プラグインのgithubのurl
+bundle install --without development test --no-deployment
+bundle exec rake redmine:plugins RAILS_ENV=production
+exit
+```
+
+2. コンテナの再起動を行う
+
+```sh
+docker compose down
+docker compose up -d
+```
